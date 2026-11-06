@@ -1,81 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>South West Traffic Monitor</title>
+    <title>South West Traffic Monitor</title>
 
-<link rel="stylesheet"
-href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.25.0/maps/maps.css"/>
-
-<style>
-html, body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-}
-
-#map {
-    width: 100%;
-    height: 100%;
-}
-
-.panel {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 9999;
-    background: white;
-    padding: 10px;
-    border-radius: 5px;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-}
-</style>
+    <link rel="icon" type="image/png" href="self_help_videos_icon.png">
 </head>
-
 <body>
-
-<div class="panel">
-    South West Traffic Monitor<br>
-    M4 | M5 | A30 | A38 | A303
-</div>
-
-<div id="map"></div>
-
-<script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.25.0/maps/maps-web.min.js"></script>
-
-<script>
-
-const apiKey = "6lm9hE1rwlSfkwyKV5cDglVa3d4LSRpT";
-
-const centre = [-3.15, 51.15];
-
-const map = tt.map({
-    key: apiKey,
-    container: "map",
-    center: centre,
-    zoom: 7,
-    style: "https://api.tomtom.com/style/1/style/21.1.0-*?map=basic_main&traffic_incidents=incidents_day&traffic_flow=flow_relative0&key=" + apiKey
-});
-
-map.addControl(new tt.NavigationControl());
-
-// Re-centre every 30 seconds
-setInterval(() => {
-    map.flyTo({
-        center: centre,
-        zoom: 7
-    });
-}, 30000);
-
-// Refresh every minute
-setInterval(() => {
-    location.reload();
-}, 60000);
-
-</script>
-
 </body>
 </html>
